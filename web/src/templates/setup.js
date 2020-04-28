@@ -21,6 +21,7 @@ export const query = graphql`
       _rawBody
       setupUrl
       source
+      title
       tags {
         title
         color

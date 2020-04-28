@@ -27,6 +27,11 @@ export default {
       title: 'External URL'
     },
     {
+      name: 'title',
+      type: 'string',
+      title: 'Title'
+    },
+    {
       name: 'source',
       type: 'string',
       title: 'Source'

@@ -1,3 +1,5 @@
+import { FaExternalLinkAlt } from 'react-icons/fa'
+
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -27,14 +29,28 @@ export default {
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
+            title: 'External Link',
             name: 'link',
             type: 'object',
-            title: 'URL',
+            blockEditor: {
+              icon: FaExternalLinkAlt
+            },
             fields: [
               {
                 title: 'URL',
                 name: 'href',
-                type: 'url'
+                type: 'url',
+                validation: Rule =>
+                  Rule.uri({
+                    allowRelative: true,
+                    scheme: ['https', 'http', 'mailto', 'tel']
+                  })
+              },
+              {
+                title: 'Open in new tab',
+                name: 'blank',
+                description: 'Read https://css-tricks.com/use-target_blank/',
+                type: 'boolean'
               }
             ]
           }

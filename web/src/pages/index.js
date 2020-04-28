@@ -118,19 +118,17 @@ const IndexPage = props => {
         description={site.description}
         keywords={site.keywords}
       />
-      <ContainerMain>
         <h1 hidden>Welcome to {site.title}</h1>
-        { site.setups && (
-            <SetupsGrid setups={site.setups} />
-          )}
-        {/* {postNodes && (
-          <BlogPostPreviewList
-            title='Latest blog posts'
-            nodes={postNodes}
-            browseMoreHref='/archive/'
-          />
-        )} */}
-      </ContainerMain>
+      { site.setups && (
+          <SetupsGrid setups={site.setups} />
+        )}
+      {/* {postNodes && (
+        <BlogPostPreviewList
+          title='Latest blog posts'
+          nodes={postNodes}
+          browseMoreHref='/archive/'
+        />
+      )} */}
     </Layout>
   )
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {Link} from 'gatsby'
 import Img from "gatsby-image"
 import { motion } from "framer-motion";
-import { ContainerFullWidth, ContainerBodyWidth } from '../containers'
+import { ContainerFullWidth, ContainerBodyWidth, ContainerMain } from '../containers'
 import SetupTag from './setupTag'
 import {
   useWindowSize,
@@ -20,7 +20,7 @@ const Grid = styled.div`
 const SetupPanel = styled(motion.div)`
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
   color: ${props => props.theme.theme.text.primary};
 `
 
@@ -48,13 +48,17 @@ const SetupPreviewDetails = styled.div`
   padding: 12px;
   /* display: grid; */
   /* grid-gap: 12px; */
-  background-color: ${props => props.theme.theme.bg.tertiary};
+  background-color: ${props => props.theme.theme.bg.secondary};
   height: 100%;
 `
 
 const TagContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+`
+
+const Section = styled(ContainerFullWidth)`
+  background-color: ${props => props.theme.theme.bg.tertiary};
 `
 
 const SetupPreview = ({setup}) => {
@@ -102,13 +106,17 @@ const SetupsGrid = ( {setups} ) => {
   console.log(setups)
 
   return(
-    <Grid>
-      {
-        setups && setups.map(setup => (
-          <SetupPreview setup={setup} />
-        ))
-      }
-    </Grid>
+    <Section>
+      <ContainerMain>
+        <Grid>  
+          {
+            setups && setups.map(setup => (
+              <SetupPreview setup={setup} />
+              ))
+            }
+        </Grid>
+      </ContainerMain>
+    </Section>
   )
 }
 
