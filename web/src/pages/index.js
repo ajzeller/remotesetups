@@ -6,10 +6,12 @@ import {
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
 import BlogPostPreviewList from '../components/blog-post-preview-list'
-import Container from '../components/container'
+// import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import { ContainerMain } from '../containers'
+import SetupsGrid from '../components/setupsGrid'
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -39,6 +41,27 @@ export const query = graphql`
       title
       description
       keywords
+      setups {
+        username
+        tags {
+          title
+          color
+          backgroundColor
+        }
+        mainImage {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+            fixed(width: 400) {
+              ...GatsbySanityImageFixed
+            }
+          }
+        }
+        slug {
+          current
+        }
+      }
     }
     posts: allSanityPost(
       limit: 6
@@ -95,16 +118,19 @@ const IndexPage = props => {
         description={site.description}
         keywords={site.keywords}
       />
-      <Container>
+      <ContainerMain>
         <h1 hidden>Welcome to {site.title}</h1>
-        {postNodes && (
+        { site.setups && (
+            <SetupsGrid setups={site.setups} />
+          )}
+        {/* {postNodes && (
           <BlogPostPreviewList
             title='Latest blog posts'
             nodes={postNodes}
             browseMoreHref='/archive/'
           />
-        )}
-      </Container>
+        )} */}
+      </ContainerMain>
     </Layout>
   )
 }

@@ -11,6 +11,10 @@ module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-source-sanity',
       options: {

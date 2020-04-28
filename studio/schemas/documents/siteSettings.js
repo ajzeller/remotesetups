@@ -31,6 +31,15 @@ export default {
       description: 'Publish an author and set a reference to them here.',
       title: 'Author',
       to: [{type: 'author'}]
+    },
+    {
+      name: 'setups',
+      type: 'array',
+      title: 'Setups',
+      of: [{
+        type: 'reference',
+        to: [{type: 'setup'}]
+      }]
     }
   ]
 }
