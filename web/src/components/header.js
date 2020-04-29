@@ -21,16 +21,17 @@ const HeaderContainer = styled(ContainerBodyWidth)`
   grid-template-columns: auto 1fr;
   align-items: center;
   height: 80px;
-  padding: 20px 24px;
+  padding: 0px 24px;
   box-sizing: border-box;
 
   .logo {
     display: block;
     text-decoration: none;
-    color: ${props => props.theme.theme.text.primary};
-    font-weight: 500;
+    color: ${props => props.theme.theme.colors.red};
+    font-weight: 800;
     font-size: 1.4rem;
     margin-right: 24px;
+    text-transform: uppercase;
 
     svg{
       height: 30px;
@@ -62,7 +63,8 @@ const Nav = styled.nav`
   }
 
   a {
-    color: ${props => props.theme.theme.text.tertiary};
+    color: ${props => props.theme.theme.text.primary};
+    font-weight: 600;
     text-decoration: none;
     font-size: 1rem;
     padding: 6px 0;

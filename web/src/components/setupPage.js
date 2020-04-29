@@ -6,6 +6,7 @@ import { ContainerFullWidth, ContainerMain } from '../containers'
 import PortableText from './portableText'
 import SetupTag from './setupTag'
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Backdrop = styled(ContainerFullWidth)`
   background-color: ${props => props.theme.theme.bg.tertiary};
@@ -20,7 +21,7 @@ const TagContainer = styled.div`
 
 const DetailsGrid = styled.div`
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 1fr 300px;
   grid-gap: 24px; 
 
   @media (max-width: 700px) {
@@ -62,12 +63,19 @@ const Label = styled.span`
   text-transform: uppercase;
 `
 
-const ExternalLink = styled.a`
+const DetailsLabel = styled(Label)`
+  color: ${props => props.theme.theme.colors.red};
+`
+
+const ExternalLink = styled(motion.a)`
   font-size: 0.9rem;
   font-weight: 600;
   display: flex;
   align-items: center;
-  color: ${props => props.theme.theme.text.primary};
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: ${props => props.theme.theme.colors.red};
 
   svg{
     margin: 0 0 0 8px;
@@ -88,6 +96,7 @@ const SetupPage = (props) => {
       <Backdrop>
         <ContainerMain>
           <DetailsGrid>
+            <SetupImg fluid={mainImage.asset.fluid} />
             <DetailsColumn>
               <Title>{title}</Title>
               <Label>Made by</Label>
@@ -101,14 +110,20 @@ const SetupPage = (props) => {
                   <SetupTag tagData={tag} />
                 ))}
               </TagContainer>
-                <ExternalLink href={setupUrl} target="_blank">View on {source} <FaExternalLinkAlt size='16px' /></ExternalLink>
+                <ExternalLink 
+                  href={setupUrl} 
+                  target="_blank"
+                  whileHover={{
+                    scale: 1.02
+                  }}
+                  >View on {source} <FaExternalLinkAlt size='12px' /></ExternalLink>
             </DetailsColumn>
-            <SetupImg fluid={mainImage.asset.fluid} />
           </DetailsGrid>
         </ContainerMain>
       </Backdrop>
 
       <ContainerMain>
+        <DetailsLabel>Setup Details</DetailsLabel>
         {_rawBody && <PortableText blocks={_rawBody} />}
       </ContainerMain>
     </>

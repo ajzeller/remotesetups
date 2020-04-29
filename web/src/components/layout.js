@@ -32,7 +32,7 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} currentPage={currentPage} />
 
     <Content className={styles.content}>{children}</Content>
-    {/* <Footer logoText={logoText} projects={projects} /> */}
+    <Footer logoText={logoText} projects={projects} />
   </Provider>
 )
 

@@ -16,6 +16,11 @@ export default {
       description: 'Describe your blog for search engines and social media.'
     },
     {
+      name: 'logoText',
+      type: 'string',
+      title: 'Logo Text'
+    },
+    {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',

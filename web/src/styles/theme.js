@@ -74,6 +74,7 @@ const defaultTheme = {
   colors: {
     spotifyGreen: '#1DB954',
     blue: '#2C7AF8',
+    red: '#E90C35',
     footerBg: '#14181B',
     footerBorder: '#2E363E'
   },

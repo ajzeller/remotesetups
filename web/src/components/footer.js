@@ -63,7 +63,11 @@ const FooterGrid = styled(ContainerBodyWidth)`
 
   .bold{
     font-weight: 600;
-    color: ${props => props.theme.theme.text.primary};
+  }
+
+  .logo {
+    color: ${props => props.theme.theme.colors.red};
+    text-transform: uppercase;
   }
 
   ul{
@@ -118,15 +122,20 @@ const Social = styled.div`
 const Footer = ( { logoText, projects } ) => {
   const linksList = (<ul>
     <li>
-      <Link to='/about'>About</Link>
+      <Link to='/setups/'>Setups</Link>
     </li>
     <li>
-      <Link to='/blog'>Blog</Link>
+      <Link to='/products/'>Top Products</Link>
     </li>
     <li>
-      <Link to='/uses'>Uses</Link>
+      <Link to='/reviews/'>Reviews</Link>
     </li>
-
+    <li>
+      <Link to='/tools/'>Remote Tools</Link>
+    </li>
+    <li>
+        <Link to='/about/'>About</Link>
+      </li>
   </ul>)
 
   console.log(projects)
@@ -137,22 +146,12 @@ const Footer = ( { logoText, projects } ) => {
         <FooterGrid>
           <div>
             <Link to='/'>
-              <span className='bold' >{ logoText }</span>
+              <span className='bold logo' >{ logoText }</span>
             </Link>
             {linksList}
           </div>
 
           <div>
-            <Link to='/projects/'>
-              <span className='bold' >Projects</span>
-            </Link>
-            <ul>
-              {projects.map(project => (
-                <li key={`${project.name}-footer`}>
-                  <Link to={`/projects/${project.slug.current}/`}>{project.name}</Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <Social>
