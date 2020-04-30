@@ -18,6 +18,7 @@ const FooterContainerFullWidth = styled(ContainerFullWidth)`
 
 const FooterBody = styled(ContainerBodyWidth)`
   padding: 24px 24px 12px 24px;
+  box-sizing: border-box;
   color: ${props => props.theme.theme.text.tertiary};
 
   p {

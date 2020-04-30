@@ -33,7 +33,7 @@ export default {
             value: 'https://github.com/ajzeller/remotesetups',
             category: 'Code'
           },
-          { title: 'Frontend', value: 'https://remotesetups.netlify.app', category: 'apps' }
+          { title: 'Frontend', value: 'https://remotesetups.com', category: 'apps' }
         ]
       }
     },

@@ -90,6 +90,7 @@ const Title = styled.h1`
 const SetupPage = (props) => {
   console.log(props)
   const {_rawBody, authors, mainImage, username, publishedAt, tags, source, setupUrl, title} = props
+  console.log(tags)
 
   return(
     <>
@@ -107,7 +108,7 @@ const SetupPage = (props) => {
               <Label>Tags</Label>
               <TagContainer>
                 {tags.map(tag => (
-                  <SetupTag tagData={tag} />
+                  <SetupTag {...tag} />
                 ))}
               </TagContainer>
                 <ExternalLink 

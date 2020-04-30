@@ -69,7 +69,7 @@ const defaultTheme = {
     code: 1.6,
   },
   contentWidths: {
-    body: '1200px'
+    body: '1400px'
   },
   colors: {
     spotifyGreen: '#1DB954',

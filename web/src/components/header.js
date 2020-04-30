@@ -91,13 +91,13 @@ const NavListWrapper = styled.div`
   justify-self: left;
 
   ul{
-    justify-self: left;
+    /* justify-self: left;
     display: flex;
     align-items: flex-end;
-    justify-items: right;
+    justify-items: center;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0; */
 
     li{
       margin: 0 0 0 12px;
@@ -276,10 +276,10 @@ export const NavList = ({ currentPage, isMenuVisible }) => {
           <Link to='/products/' className={currentPage == 'projects' ? `current` : undefined}>Top Products</Link>
         </li>
         <li>
-          <Link to='/reviews/' className={currentPage == 'blog' ? `current` : undefined}>Reviews</Link>
+          <Link to='/reviews/' className={currentPage == 'reviews' ? `current` : undefined}>Reviews</Link>
         </li>
         <li>
-          <Link to='/tools/' className={currentPage == 'blog' ? `current` : undefined}>Remote Tools</Link>
+          <Link to='/tools/' className={currentPage == 'tools' ? `current` : undefined}>Remote Tools</Link>
         </li>
         {
           !isMenuVisible && (

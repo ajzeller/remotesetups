@@ -4,12 +4,13 @@ import {Link} from 'gatsby'
 import Img from "gatsby-image"
 import { motion } from "framer-motion";
 import { ContainerFullWidth, ContainerBodyWidth, ContainerMain } from '../containers'
-import SetupTag from './setupTag'
+import SetupTag, { ResetTag } from './setupTag'
 import {
   useWindowSize,
   useWindowWidth,
   useWindowHeight,
 } from '@react-hook/window-size'
+import { useState } from 'react';
 
 const Grid = styled.div`
   display: grid;
@@ -61,6 +62,12 @@ const Section = styled(ContainerFullWidth)`
   background-color: ${props => props.theme.theme.bg.tertiary};
 `
 
+const FiltersGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 12px 0;
+`
+
 const SetupPreview = ({setup}) => {
   let [width, height] = useWindowSize()
 
@@ -90,7 +97,7 @@ const SetupPreview = ({setup}) => {
 
           <TagContainer>
             {setup.tags.map(tag => (
-              <SetupTag tagData={tag} />
+              <SetupTag {...tag} />
             ))}
           </TagContainer>
 
@@ -101,16 +108,90 @@ const SetupPreview = ({setup}) => {
   )
 }
 
-const SetupsGrid = ( {setups} ) => {
+const FilterTags = ({ filterTags, handleFilterTagClick, resetFilterTags }) => {
+  return(
+    <FiltersGrid>
+      {filterTags.map(tag => (
+        <SetupTag {...tag} isToggleable={true} handleFilterTagClick={handleFilterTagClick} />
+      ))}
+      <ResetTag resetFilterTags={resetFilterTags} />
+    </FiltersGrid>
+  )
+}
 
-  console.log(setups)
+const SetupsGrid = ( { setups, tags } ) => {
+
+  const [filterTags, setFilterTags] = useState(
+    tags.edges.map(tag => ({
+      title: tag.node.title,
+      color: tag.node.color,
+      backgroundColor: tag.node.backgroundColor,
+      isVisible: true
+    }))
+  )
+
+  const handleFilterTagClick = (title) => {
+
+    let allTagsVisible = true
+    filterTags.forEach(tag => {
+      if(!tag.isVisible){
+        allTagsVisible = false
+      }
+    })
+
+    setFilterTags(prev => prev.map(tag => {
+      if(allTagsVisible){
+        if(tag.title !== title){
+          return({
+            ...tag,
+            isVisible: false
+          })
+        } else {
+          return tag
+        }
+      } else{
+        if(tag.title == title){
+          return({
+            ...tag,
+            isVisible: !tag.isVisible
+          })
+        } else {
+          return tag
+        }
+      }
+    }))
+  }
+
+  const resetFilterTags = () => {
+    setFilterTags(prev => prev.map(tag => ({
+      ...tag,
+      isVisible: true
+    })
+    ))
+  }
+
+  // console.log(filterTags)
 
   return(
     <Section>
       <ContainerMain>
+        <FilterTags filterTags={filterTags} handleFilterTagClick={handleFilterTagClick} resetFilterTags={resetFilterTags} />
         <Grid>  
           {
-            setups && setups.map(setup => (
+            setups && setups.filter(setup =>{
+              let includeSetup = false
+
+              setup.tags.forEach(tag => {
+                filterTags.forEach(filterTag => {
+                  if(tag.title == filterTag.title && filterTag.isVisible){
+                    includeSetup = true
+                  }
+                })
+              })
+
+              return(includeSetup)
+
+            }).map(setup => (
               <SetupPreview setup={setup} />
               ))
             }

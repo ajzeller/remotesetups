@@ -63,6 +63,17 @@ export const query = graphql`
         }
       }
     }
+
+    tags: allSanityTag {
+      edges {
+        node {
+          color
+          title
+          backgroundColor
+        }
+      }
+    }
+
     posts: allSanityPost(
       limit: 6
       sort: { fields: [publishedAt], order: DESC }
@@ -120,7 +131,7 @@ const IndexPage = props => {
       />
         <h1 hidden>Welcome to {site.title}</h1>
       { site.setups && (
-          <SetupsGrid setups={site.setups} />
+          <SetupsGrid setups={site.setups} tags={data.tags} />
         )}
       {/* {postNodes && (
         <BlogPostPreviewList

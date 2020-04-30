@@ -21,7 +21,7 @@ const Content = styled.div`
       
       &:hover {
         /* background-color: ${props => props.theme.theme.border.tertiary}; */
-        border-bottom: 2px solid ${props => props.theme.theme.colors.blue};
+        border-bottom: 2px solid ${props => props.theme.theme.colors.red};
       }
     }
   }
