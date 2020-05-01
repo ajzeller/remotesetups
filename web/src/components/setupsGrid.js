@@ -18,7 +18,7 @@ const Grid = styled.div`
   grid-gap: 24px;
 `
 
-const SetupPanel = styled(motion.div)`
+export const Panel = styled(motion.div)`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
@@ -58,8 +58,7 @@ const TagContainer = styled.div`
   flex-wrap: wrap;
 `
 
-const Section = styled(ContainerFullWidth)`
-  background-color: ${props => props.theme.theme.bg.tertiary};
+const SetupsSection = styled.div`
 `
 
 const FiltersGrid = styled.div`
@@ -77,7 +76,7 @@ const SetupPreview = ({setup}) => {
 
   return(
     <Link to={`/setups/${setup.slug.current}`}>
-      <SetupPanel 
+      <Panel 
         whileHover={width > 700 ? {
           scale: 1.02,
           y: 0
@@ -103,7 +102,7 @@ const SetupPreview = ({setup}) => {
 
         </SetupPreviewDetails>
 
-      </SetupPanel>
+      </Panel>
     </Link>
   )
 }
@@ -173,8 +172,7 @@ const SetupsGrid = ( { setups, tags } ) => {
   // console.log(filterTags)
 
   return(
-    <Section>
-      <ContainerMain>
+    <SetupsSection>
         <FilterTags filterTags={filterTags} handleFilterTagClick={handleFilterTagClick} resetFilterTags={resetFilterTags} />
         <Grid>  
           {
@@ -196,8 +194,7 @@ const SetupsGrid = ( { setups, tags } ) => {
               ))
             }
         </Grid>
-      </ContainerMain>
-    </Section>
+    </SetupsSection>
   )
 }
 

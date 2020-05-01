@@ -3,7 +3,7 @@ import {format} from 'date-fns'
 export default {
   name: 'post',
   type: 'document',
-  title: 'Blog Post',
+  title: 'Post',
   fields: [
     {
       name: 'title',

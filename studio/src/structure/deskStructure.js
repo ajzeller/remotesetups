@@ -58,10 +58,10 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
-        .title('Blog posts')
+        .title('Posts')
         .icon(MdDescription)
         .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
+        .child(S.documentTypeList('post').title('Posts')),
       S.listItem()
         .title('Authors')
         .icon(MdPerson)
