@@ -19,7 +19,7 @@ export default {
                 },
                 {
                   buildHookId: '5ea76797a72f5b8687578c23',
-                  title: 'Blog Website',
+                  title: 'Live Website',
                   name: 'remotesetups',
                   apiId: '259aeebb-56c9-4efd-a9fa-fbf31891db77'
                 }

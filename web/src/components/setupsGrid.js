@@ -11,6 +11,7 @@ import {
   useWindowHeight,
 } from '@react-hook/window-size'
 import { useState } from 'react';
+import { Label } from './'
 
 const Grid = styled.div`
   display: grid;
@@ -64,7 +65,7 @@ const SetupsSection = styled.div`
 const FiltersGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 0 12px 0;
+  margin: 12px 0 12px 0;
 `
 
 const SetupPreview = ({setup}) => {
@@ -86,6 +87,7 @@ const SetupPreview = ({setup}) => {
           <SetupImg 
             fluid={setup.mainImage.asset.fluid} 
             objectFit="fill"
+            alt={setup.mainImage.alt}
             />
           <Username>
             {setup.username}
@@ -173,6 +175,7 @@ const SetupsGrid = ( { setups, tags } ) => {
 
   return(
     <SetupsSection>
+      <Label>Filters</Label>
         <FilterTags filterTags={filterTags} handleFilterTagClick={handleFilterTagClick} resetFilterTags={resetFilterTags} />
         <Grid>  
           {

@@ -123,6 +123,7 @@ export const query = graphql`
               ...GatsbySanityImageFixed
             }
           }
+          alt
         }
         slug {
           current

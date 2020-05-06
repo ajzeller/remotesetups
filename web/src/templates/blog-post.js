@@ -3,6 +3,7 @@ import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import BlogPost from '../components/blog-post'
+import Post from '../components/post'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {toPlainText} from '../lib/helpers'
@@ -19,6 +20,14 @@ export const query = graphql`
       mainImage {
         ...SanityImage
         alt
+        asset {
+          fluid {
+            ...GatsbySanityImageFluid
+          }
+          fixed(width: 400) {
+            ...GatsbySanityImageFixed
+          }
+        }
       }
       title
       slug {
@@ -71,7 +80,8 @@ const BlogPostTemplate = props => {
         </Container>
       )}
 
-      {post && <BlogPost {...post} />}
+      {/* {post && <BlogPost {...post} />} */}
+      {post && <Post {...post} />}
     </Layout>
   )
 }

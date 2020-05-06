@@ -2,6 +2,7 @@ import {Link} from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import { Panel } from './setupsGrid'
+import { Label } from './'
 
 const RecentPostsPanel = styled(Panel)`
   padding: 12px;
@@ -9,11 +10,11 @@ const RecentPostsPanel = styled(Panel)`
   grid-gap: 12px;
 `
 
-const Label = styled.span`
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  font-weight: 700;
-`
+// const Label = styled.span`
+//   font-size: 0.7rem;
+//   text-transform: uppercase;
+//   font-weight: 700;
+// `
 
 const PostPreviewItem = styled.div`
   color: ${props => props.theme.theme.text.primary};
