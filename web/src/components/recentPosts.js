@@ -31,10 +31,20 @@ const PostTitle = styled.h3`
   }
 `
 
+const PostCategory = styled(Label)`
+  /* font-size: 1.2rem; */
+  /* font-weight: 600; */
+  margin: 0;
+  color: ${props => props.theme.theme.text.quarternary};
+`
+
 const PostPreview = ( { post } ) => {
   return(
     <Link to={post.slug.current}>
       <PostPreviewItem>
+        {post.categories.map(category => (
+          <PostCategory>{category.title}</PostCategory>
+        ))}
         <PostTitle>
           {post.title}
         </PostTitle>

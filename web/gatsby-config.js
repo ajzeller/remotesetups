@@ -23,6 +23,16 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-46643989-12",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        cookieDomain: "https://remotesetups.com",
+      },
     }
   ]
 }

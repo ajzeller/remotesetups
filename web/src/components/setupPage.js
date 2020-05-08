@@ -111,6 +111,7 @@ const SetupPage = (props) => {
                   <SetupTag {...tag} />
                 ))}
               </TagContainer>
+              { source && (
                 <ExternalLink 
                   href={setupUrl} 
                   target="_blank"
@@ -118,6 +119,7 @@ const SetupPage = (props) => {
                     scale: 1.02
                   }}
                   >View on {source} <FaExternalLinkAlt size='12px' /></ExternalLink>
+              )}
             </DetailsColumn>
           </DetailsGrid>
         </ContainerMain>
