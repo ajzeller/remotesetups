@@ -31,8 +31,8 @@ module.exports = {
         trackingId: "UA-46643989-12",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: true,
-        cookieDomain: "https://remotesetups.com",
-      },
+        cookieDomain: "https://remotesetups.com"
+      }
     }
   ]
 }

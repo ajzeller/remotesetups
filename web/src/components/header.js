@@ -71,7 +71,7 @@ const Nav = styled.nav`
     padding: 6px 0;
 
     &.current {
-      border-bottom: 2px solid ${props => props.theme.theme.colors.blue};
+      /* border-bottom: 2px solid ${props => props.theme.theme.colors.red}; */
     }
 
     &:hover {
@@ -112,11 +112,13 @@ const NavListWrapper = styled.div`
     padding: 6px 0;
 
     &.current {
-      border-bottom: 2px solid ${props => props.theme.theme.colors.blue};
+      /* border-bottom: 2px solid ${props => props.theme.theme.colors.red}; */
+      color: ${props => props.theme.theme.colors.red};
     }
 
     &:hover {
-      color: ${props => props.theme.theme.text.primary};
+      /* color: ${props => props.theme.theme.text.primary}; */
+      color: ${props => props.theme.theme.colors.red};
     }
   }
 
@@ -271,12 +273,12 @@ export const NavList = ({ currentPage, isMenuVisible }) => {
     <NavListWrapper>
       <ul>
         <li>
-          <Link to='/setups/' className={currentPage == 'about' ? `current`: undefined}>Setups</Link>
+          <Link to='/setups/' className={currentPage == 'setups' ? `current`: undefined}>Setups</Link>
         </li>
         <li>
-          <Link to='/products/' className={currentPage == 'projects' ? `current` : undefined}>Top Products</Link>
+          <Link to='/guides/' className={currentPage == 'guides' ? `current` : undefined}>Guides</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to='/reviews/' className={currentPage == 'reviews' ? `current` : undefined}>Reviews</Link>
         </li>
         <li>
@@ -292,7 +294,7 @@ export const NavList = ({ currentPage, isMenuVisible }) => {
 
         {
           isMenuVisible && <OverflowMenu />
-        }
+        } */}
       </ul>
       <OverflowMenuWrapper animate={
         isOverflowMenuVisible ? {
