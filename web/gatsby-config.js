@@ -9,6 +9,15 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-46643989-12",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true
+      }
+    },
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sharp`,
@@ -22,16 +31,6 @@ module.exports = {
         token: process.env.SANITY_READ_TOKEN,
         watchMode: !isProd,
         overlayDrafts: !isProd
-      }
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-46643989-12",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
-        cookieDomain: "https://remotesetups.com"
       }
     }
   ]
