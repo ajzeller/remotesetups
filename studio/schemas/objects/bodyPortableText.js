@@ -1,4 +1,9 @@
 import { FaExternalLinkAlt } from 'react-icons/fa'
+import React from 'react'
+
+const tldrRender = props => (
+  <span style={{ borderBottom: '3px solid PowderBlue' }}>{props.children}</span>
+)
 
 export default {
   name: 'bodyPortableText',
@@ -18,7 +23,13 @@ export default {
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
-        {title: 'Quote', value: 'blockquote'}
+        {title: 'Quote', value: 'blockquote'},
+        {
+          title: 'TLDR', 
+          value: 'tldr',
+          blockEditor: {
+            render: tldrRender
+          }}
       ],
       lists: [{title: 'Bullet', value: 'bullet'}, {title: 'Number', value: 'number'}],
       // Marks let you mark up inline text in the block editor.

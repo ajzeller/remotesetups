@@ -276,8 +276,11 @@ export const NavList = ({ currentPage, isMenuVisible }) => {
           <Link to='/setups/' className={currentPage == 'setups' ? `current`: undefined}>Setups</Link>
         </li>
         <li>
-          <Link to='/guides/' className={currentPage == 'guides' ? `current` : undefined}>Guides</Link>
+          <Link to='/articles/' className={currentPage == 'articles' ? `current` : undefined}>Articles</Link>
         </li>
+        {/* <li>
+          <Link to='/guides/' className={currentPage == 'guides' ? `current` : undefined}>Guides</Link>
+        </li> */}
         {/* <li>
           <Link to='/reviews/' className={currentPage == 'reviews' ? `current` : undefined}>Reviews</Link>
         </li>

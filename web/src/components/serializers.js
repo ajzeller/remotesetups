@@ -1,10 +1,57 @@
 import React from 'react'
 import Figure from './Figure'
+import styled from 'styled-components'
+
+const TldrWrapper = styled.div`
+  border: 1px solid ${props => props.theme.theme.colors.blue};
+  background-color: ${props => props.theme.theme.colors.transparentBlue};
+  border-radius: 8px;
+  padding: 12px;
+
+  h3{
+    font-weight: 600;
+    color: ${props => props.theme.theme.colors.blue};
+    margin: 6px 0;
+  }
+`
+
+const Tldr = (props) => {
+  return(
+    <TldrWrapper>
+      <h3>TLDR</h3>
+      {props.children}
+    </TldrWrapper>
+  )
+}
 
 const serializers = {
   types: {
     authorReference: ({node}) => <span>{node.author.name}</span>,
-    mainImage: Figure
+    mainImage: Figure,
+    block (props) {
+      switch (props.node.style) {
+        case 'h1':
+          return <h1>}>{props.children}</h1>
+
+        case 'h2':
+          return <h2>{props.children}</h2>
+
+        case 'h3':
+          return <h3>{props.children}</h3>
+
+        case 'h4':
+          return <h4>{props.children}</h4>
+
+        case 'blockquote':
+          return <blockquote>{props.children}</blockquote>
+
+        case 'tldr':
+          return <Tldr>{props.children}</Tldr>
+
+        default:
+          return <p>{props.children}</p>
+      }
+    },
   },
   marks: {
     link: ({mark, children}) => {

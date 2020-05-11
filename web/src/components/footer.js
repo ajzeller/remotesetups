@@ -126,9 +126,9 @@ const Footer = ( { logoText, projects } ) => {
       <Link to='/setups/'>Setups</Link>
     </li>
     <li>
-      <Link to='/products/'>Top Products</Link>
+      <Link to='/articles/'>Articles</Link>
     </li>
-    <li>
+    {/* <li>
       <Link to='/reviews/'>Reviews</Link>
     </li>
     <li>
@@ -136,7 +136,7 @@ const Footer = ( { logoText, projects } ) => {
     </li>
     <li>
         <Link to='/about/'>About</Link>
-      </li>
+    </li> */}
   </ul>)
 
   console.log(projects)
