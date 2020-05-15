@@ -31,6 +31,11 @@ export default {
       }
     },
     {
+      name: 'metaImage',
+      type: 'mainImage',
+      title: 'Meta Image'
+    },
+    {
       name: 'author',
       type: 'reference',
       description: 'Publish an author and set a reference to them here.',

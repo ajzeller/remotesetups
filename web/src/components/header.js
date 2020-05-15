@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import Toggler from './toggler'
 import { ContainerFullWidth, ContainerBodyWidth } from '../containers'
-import { FaGithub, FaDribbble, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaDribbble, FaPinterest, FaTwitter } from "react-icons/fa";
 import { IoMdMenu, IoMdClose, IoIosMore } from "react-icons/io";
 
 const HeaderContainerFullWidth = styled(ContainerFullWidth)`
@@ -169,7 +169,7 @@ const OverflowMenuWrapper = styled(motion.div)`
 
 const SocialIcons = styled.div`
   display: grid;
-  grid-template-columns: repeat(1, auto);
+  grid-template-columns: repeat(2, auto);
   grid-gap: 12px;
   justify-items: center;
   align-items: center;
@@ -324,6 +324,9 @@ export const socialList = (
   <SocialIcons>
     <a href="https://twitter.com/remotesetups" target="_blank" rel="noopener">
       <FaTwitter size='24px' className='icon' title='View Twitter profile' />
+    </a>
+    <a href="https://www.pinterest.com/remotesetups/" target="_blank" rel="noopener">
+      <FaPinterest size='24px' className='icon' title='View Pinterest profile' />
     </a>
   </SocialIcons>)
 

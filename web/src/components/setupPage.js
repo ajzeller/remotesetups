@@ -87,6 +87,10 @@ const Title = styled.h1`
   font-size: 1.8rem;
 `
 
+const Disclaimer = styled.p`
+  color: ${props => props.theme.theme.text.quarternary};
+`
+
 const SetupPage = (props) => {
   console.log(props)
   const {_rawBody, authors, mainImage, username, publishedAt, tags, source, setupUrl, title} = props
@@ -127,6 +131,9 @@ const SetupPage = (props) => {
 
       <ContainerMain>
         <DetailsLabel>Setup Details</DetailsLabel>
+        <Disclaimer>
+          (Please note that this page contains Amazon affiliate links which help me to keep this site running. By clicking the links I earn a commission at no cost to you.)
+        </Disclaimer>
         {_rawBody && <PortableText blocks={_rawBody} />}
       </ContainerMain>
     </>

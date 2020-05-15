@@ -163,8 +163,9 @@ const Footer = ( { logoText, projects } ) => {
                 and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.
               </p>
               <p>
-                © 2020 Andrew Zeller
+                As an Amazon Associate I earn from qualifying purchases.
               </p>
+              <p>All images used with permission.</p>
             </div>
           </Social>
           

@@ -13,7 +13,8 @@ function SEO ({description, lang, meta, keywords, title, image}) {
         const metaDescription = description || (data.site && data.site.description) || ''
         const siteTitle = (data.site && data.site.title) || ''
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || ''
-        const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : ''
+        // const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : ''
+        const metaImage = (data.site) && data.site.metaImage
 
         return (
           <Helmet
@@ -39,7 +40,7 @@ function SEO ({description, lang, meta, keywords, title, image}) {
               },
               {
                 property: 'og:image',
-                content: metaImage
+                content: metaImage.asset.fixed.src
               },
               {
                 name: 'twitter:card',
@@ -56,6 +57,10 @@ function SEO ({description, lang, meta, keywords, title, image}) {
               {
                 name: 'twitter:description',
                 content: metaDescription
+              },
+              {
+                name: 'twitter:image',
+                content: metaImage.asset.fixed.src
               }
             ]
               .concat(
@@ -96,6 +101,13 @@ const detailsQuery = graphql`
       title
       description
       keywords
+      metaImage {
+        asset {
+          fixed(width:1200) {
+            src
+          }
+        }
+      }
       author {
         name
       }
