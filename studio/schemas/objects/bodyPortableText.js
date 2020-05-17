@@ -77,9 +77,9 @@ export default {
       options: {hotspot: true}
     },
     {
-      value: 'productTable',
       name: 'productTable',
-      type: 'table'
+      title: 'Product Table',
+      type: 'productTable'
     }
   ]
 }
