@@ -65,7 +65,7 @@ const Category = styled.span`
 
 const ArticleBody = styled.div`
   max-width: 800px;
-  margin: 48px 0 50px 0;
+  margin: 48px 0 48px 0;
   /* padding: 0 0 50px 0; */
   /* border-bottom: 2px solid ${props => props.theme.theme.border.secondary}; */
 
