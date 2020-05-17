@@ -143,7 +143,6 @@ const SetupPage = (props) => {
           <DiscussionEmbed 
                 shortname={process.env.GATSBY_DISQUS_NAME}
                 config={{
-                    url: `https://remotesetups.com/${location.pathname}`,
                     identifier: id,
                 }}
             /> 
