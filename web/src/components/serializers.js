@@ -28,6 +28,13 @@ const serializers = {
   types: {
     authorReference: ({node}) => <span>{node.author.name}</span>,
     mainImage: Figure,
+    productTable: ({node}) => {
+      console.log(node)
+      return(
+        <div>table goes here</div>
+      )
+    },
+    // productTable: (props) => <div>{props.children}</div>,
     block (props) {
       switch (props.node.style) {
         case 'h1':

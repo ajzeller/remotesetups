@@ -75,6 +75,11 @@ export default {
     {
       type: 'mainImage',
       options: {hotspot: true}
+    },
+    {
+      value: 'productTable',
+      name: 'productTable',
+      type: 'table'
     }
   ]
 }

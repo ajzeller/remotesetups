@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from "gatsby-image"
 import { ContainerFullWidth, ContainerMain } from '../containers'
+import { DiscussionEmbed } from 'disqus-react' 
 
 import {buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
@@ -64,7 +65,9 @@ const Category = styled.span`
 
 const ArticleBody = styled.div`
   max-width: 800px;
-  margin: 48px 0 0 0;
+  margin: 48px 0 50px 0;
+  /* padding: 0 0 50px 0; */
+  /* border-bottom: 2px solid ${props => props.theme.theme.border.secondary}; */
 
   h2{
     display: inline-block;
@@ -82,43 +85,69 @@ const ArticleBody = styled.div`
   }
 `
 
+const Backdrop = styled(ContainerFullWidth)`
+  background-color: ${props => props.theme.theme.bg.tertiary};
+`
+
 const Post = (props) => {
-  const {_rawBody, authors, categories, title, mainImage, publishedAt} = props
+  const {_rawBody, authors, categories, title, mainImage, publishedAt, slug, id} = props
   console.log(authors)
+  console.log(id)
+  console.log(process.env.GATSBY_DISQUS_NAME)
+
+
+  const disqusConfig = {
+    shortname: process.env.GATSBY_DISQUS_NAME,
+    config: { identifier: slug.current, title },
+  }
 
   return (
-    <ArticleContainer>
-        {/* <CoverImage 
-          fluid={mainImage.asset.fluid} 
-          objectFit="cover" 
-        /> */}
-        <Title>{title}</Title>
-        <ArticleInfo>
-          <PublishedBy>
-            Written by 
-          </PublishedBy>
-          {authors && authors.map((item, _key) => (
-            <AuthorItem key={_key}>
-              {item.author.name}
-            </AuthorItem>
-          ))}
-            {publishedAt && (
-            <ArticleDate>
-              Last updated on {format(new Date(publishedAt), 'MMMM Do, YYYY')}
-            </ArticleDate>
-            )}
-
-            {categories && categories.map(category => (
-              <Category key={category._id}>{category.title}</Category>
+    <>
+      <ArticleContainer>
+          {/* <CoverImage 
+            fluid={mainImage.asset.fluid} 
+            objectFit="cover" 
+          /> */}
+          <Title>{title}</Title>
+          <ArticleInfo>
+            <PublishedBy>
+              Written by 
+            </PublishedBy>
+            {authors && authors.map((item, _key) => (
+              <AuthorItem key={_key}>
+                {item.author.name}
+              </AuthorItem>
             ))}
-        </ArticleInfo>
+              {publishedAt && (
+              <ArticleDate>
+                Last updated on {format(new Date(publishedAt), 'MMMM Do, YYYY')}
+              </ArticleDate>
+              )}
 
-        <ArticleBody>
-          {_rawBody && <PortableText blocks={_rawBody} />}
-        </ArticleBody>
+              {categories && categories.map(category => (
+                <Category key={category._id}>{category.title}</Category>
+              ))}
+          </ArticleInfo>
 
+          <ArticleBody>
+            {_rawBody && <PortableText blocks={_rawBody} />}
+          </ArticleBody>
 
-    </ArticleContainer>
+        
+
+      </ArticleContainer>
+      <Backdrop>
+        <ContainerMain>
+          <DiscussionEmbed 
+              shortname={process.env.GATSBY_DISQUS_NAME}
+              config={{
+                  url: `https://remotesetups.com/${location.pathname}`,
+                  identifier: id,
+              }}
+          /> 
+        </ContainerMain>
+      </Backdrop>
+    </>
   )
 }
 

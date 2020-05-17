@@ -7,6 +7,7 @@ import PortableText from './portableText'
 import SetupTag from './setupTag'
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { DiscussionEmbed } from 'disqus-react' 
 
 const Backdrop = styled(ContainerFullWidth)`
   background-color: ${props => props.theme.theme.bg.tertiary};
@@ -93,7 +94,7 @@ const Disclaimer = styled.p`
 
 const SetupPage = (props) => {
   console.log(props)
-  const {_rawBody, authors, mainImage, username, publishedAt, tags, source, setupUrl, title} = props
+  const {_rawBody, authors, mainImage, username, publishedAt, tags, source, setupUrl, title, id} = props
   console.log(tags)
 
   return(
@@ -135,7 +136,19 @@ const SetupPage = (props) => {
           (Please note that this page contains Amazon affiliate links which help me to keep this site running. By clicking the links I earn a commission at no cost to you.)
         </Disclaimer>
         {_rawBody && <PortableText blocks={_rawBody} />}
+
       </ContainerMain>
+      <Backdrop>
+        <ContainerMain>
+          <DiscussionEmbed 
+                shortname={process.env.GATSBY_DISQUS_NAME}
+                config={{
+                    url: `https://remotesetups.com/${location.pathname}`,
+                    identifier: id,
+                }}
+            /> 
+        </ContainerMain>
+      </Backdrop>
     </>
   )
 }
