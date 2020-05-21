@@ -50,8 +50,8 @@ const CompaniesPage = (props) => {
   return (
     <Layout currentPage='companies'>
       <SEO
-        title={site.title}
-        description={site.description}
+        title={`${site.title} | Remote-Forward Tech Companies`}
+        description={`These tech companies of over 250 employees have made remote work a permanent option for their employees going forward.`}
         keywords={site.keywords}
       />
       <ContainerMain>
