@@ -5,6 +5,10 @@ const tldrRender = props => (
   <span style={{ borderBottom: '3px solid PowderBlue' }}>{props.children}</span>
 )
 
+const markdownRender = props => (
+  <span style={{ borderBottom: '3px solid grey' }}>{props.children}</span>
+)
+
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -29,7 +33,15 @@ export default {
           value: 'tldr',
           blockEditor: {
             render: tldrRender
-          }}
+          }
+        }
+        // {
+        //   title: 'Markdown',
+        //   value: 'markdown',
+        //   blockEditor: {
+        //     render: markdownRender
+        //   }
+        // }
       ],
       lists: [{title: 'Bullet', value: 'bullet'}, {title: 'Number', value: 'number'}],
       // Marks let you mark up inline text in the block editor.

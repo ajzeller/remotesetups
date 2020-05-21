@@ -273,10 +273,13 @@ export const NavList = ({ currentPage, isMenuVisible }) => {
     <NavListWrapper>
       <ul>
         <li>
-          <Link to='/setups/' className={currentPage == 'setups' ? `current`: undefined}>Setups</Link>
+          <Link to='/setups/' className={currentPage == 'setups' ? `current`: undefined}>Desk Setups</Link>
         </li>
         <li>
           <Link to='/articles/' className={currentPage == 'articles' ? `current` : undefined}>Articles</Link>
+        </li>
+        <li>
+          <Link to='/companies/' className={currentPage == 'companies' ? `current` : undefined}>Companies</Link>
         </li>
         {/* <li>
           <Link to='/guides/' className={currentPage == 'guides' ? `current` : undefined}>Guides</Link>

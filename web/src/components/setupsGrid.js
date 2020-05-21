@@ -12,6 +12,7 @@ import {
 } from '@react-hook/window-size'
 import { useState } from 'react';
 import { Label } from './'
+import ReactMarkdown from 'react-markdown'
 
 const Grid = styled.div`
   display: grid;
@@ -171,6 +172,13 @@ const SetupsGrid = ( { setups, tags } ) => {
     ))
   }
 
+  const input = `
+  | Tables        | Are           | Cool  |
+  | ------------- |:-------------:| -----:|
+  | col 3 is      | right-aligned | $1600 |
+  | col 2 is      | centered      |   $12 |
+  | zebra stripes | are neat      |    $1 |`
+
   // console.log(filterTags)
 
   return(
@@ -197,6 +205,9 @@ const SetupsGrid = ( { setups, tags } ) => {
               ))
             }
         </Grid>
+
+        <ReactMarkdown source={input} />
+
     </SetupsSection>
   )
 }

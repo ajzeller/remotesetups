@@ -19,6 +19,7 @@ import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
 import productTable from './objects/productTable'
+import markdownInput from './objects/markdownInput'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -37,6 +38,7 @@ export default createSchema({
     author,
     mainImage,
     productTable,
+    markdownInput,
     authorReference,
     bodyPortableText,
     bioPortableText,

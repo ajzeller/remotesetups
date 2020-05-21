@@ -8,6 +8,7 @@ import SetupTag from './setupTag'
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { DiscussionEmbed } from 'disqus-react' 
+import Disclaimer from './disclaimer'
 
 const Backdrop = styled(ContainerFullWidth)`
   background-color: ${props => props.theme.theme.bg.tertiary};
@@ -88,9 +89,9 @@ const Title = styled.h1`
   font-size: 1.8rem;
 `
 
-const Disclaimer = styled.p`
-  color: ${props => props.theme.theme.text.quarternary};
-`
+// const Disclaimer = styled.p`
+//   color: ${props => props.theme.theme.text.quarternary};
+// `
 
 const SetupPage = (props) => {
   console.log(props)
@@ -132,9 +133,10 @@ const SetupPage = (props) => {
 
       <ContainerMain>
         <DetailsLabel>Setup Details</DetailsLabel>
-        <Disclaimer>
+        <Disclaimer />
+        {/* <Disclaimer>
           (Please note that this page contains Amazon affiliate links which help me to keep this site running. By clicking the links I earn a commission at no cost to you.)
-        </Disclaimer>
+        </Disclaimer> */}
         {_rawBody && <PortableText blocks={_rawBody} />}
 
       </ContainerMain>

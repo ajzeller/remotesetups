@@ -1,6 +1,7 @@
 import React from 'react'
 import Figure from './Figure'
 import styled from 'styled-components'
+import ReactMarkdown from 'react-markdown'
 
 const TldrWrapper = styled.div`
   border: 1px solid ${props => props.theme.theme.colors.blue};
@@ -16,11 +17,21 @@ const TldrWrapper = styled.div`
 `
 
 const Tldr = (props) => {
+  console.log(props)
+
   return(
     <TldrWrapper>
       <h3>TLDR</h3>
       {props.children}
     </TldrWrapper>
+  )
+}
+
+const Markdown = ({input}) => {
+  console.log(input)
+
+  return(
+    <ReactMarkdown source={input[0]} />
   )
 }
 
@@ -38,7 +49,7 @@ const serializers = {
     block (props) {
       switch (props.node.style) {
         case 'h1':
-          return <h1>}>{props.children}</h1>
+          return <h1>{props.children}</h1>
 
         case 'h2':
           return <h2>{props.children}</h2>
@@ -54,6 +65,9 @@ const serializers = {
 
         case 'tldr':
           return <Tldr>{props.children}</Tldr>
+
+        case 'markdown':
+          return <Markdown input={props.children} />
 
         default:
           return <p>{props.children}</p>

@@ -13,6 +13,7 @@ import Container from './container'
 import AuthorList from './author-list'
 
 import styles from './blog-post.module.css'
+import Disclaimer from './disclaimer'
 
 const CoverImage = styled(Img)`
   max-height: 600px;
@@ -128,6 +129,8 @@ const Post = (props) => {
                 <Category key={category._id}>{category.title}</Category>
               ))}
           </ArticleInfo>
+
+          <Disclaimer />
 
           <ArticleBody>
             {_rawBody && <PortableText blocks={_rawBody} />}
