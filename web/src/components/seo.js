@@ -16,6 +16,7 @@ function SEO ({description, lang, meta, keywords, title, image}) {
         // const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : ''
         const metaImage = (data.site) && data.site.metaImage
         const twitterImage = image ? image : metaImage
+        console.log(twitterImage)
 
         return (
           <Helmet
@@ -45,7 +46,7 @@ function SEO ({description, lang, meta, keywords, title, image}) {
               },
               {
                 name: 'twitter:card',
-                content: 'summary'
+                content: 'summary_large_image'
               },
               {
                 name: 'twitter:creator',
