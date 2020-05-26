@@ -40,10 +40,10 @@ const PostCategory = styled(Label)`
 
 const PostPreview = ( { post } ) => {
   return(
-    <Link to={post.slug.current}>
+    <Link to={`/${post.slug.current}`}>
       <PostPreviewItem>
         {post.categories.map(category => (
-          <PostCategory>{category.title}</PostCategory>
+          <PostCategory key={category.id}>{category.title}</PostCategory>
         ))}
         <PostTitle>
           {post.title}
@@ -54,14 +54,12 @@ const PostPreview = ( { post } ) => {
 }
 
 const RecentPosts = ( {posts} ) => {
-  console.log(posts)
-
   return(
     <RecentPostsPanel>
       <Label>
         Recent
       </Label>
-      {posts.map(post => (<PostPreview post={post} />))}
+      {posts.map(post => (<PostPreview post={post} key={post.id} />))}
     </RecentPostsPanel>
   )
 }

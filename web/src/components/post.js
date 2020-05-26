@@ -92,9 +92,9 @@ const Backdrop = styled(ContainerFullWidth)`
 
 const Post = (props) => {
   const {_rawBody, authors, categories, title, mainImage, publishedAt, slug, id} = props
-  console.log(authors)
-  console.log(id)
-  console.log(process.env.GATSBY_DISQUS_NAME)
+  // console.log(authors)
+  // console.log(id)
+  // console.log(process.env.GATSBY_DISQUS_NAME)
 
 
   const disqusConfig = {

@@ -59,14 +59,14 @@ const Author = styled.h3`
 `
 
 const PostPreview = ( {post} ) => {
-  console.log(post)
+  // console.log(post)
   return(
     <Link to={`/${post.slug.current}`}>
       <PostPreviewContainer>
         <PostImage fluid={post.mainImage.asset.fluid} />
         <h2>{post.title}</h2>
         <Author>
-          By: {post.authors.map(item => (<span>{item.author.name}</span>))}
+          By: {post.authors.map(item => (<span key={item.author.id}>{item.author.name}</span>))}
         </Author>
       </PostPreviewContainer>
     </Link>
@@ -114,6 +114,8 @@ const ArticlesPage = props => {
     )
   }
 
+  console.log(posts)
+
   return (
     <Layout currentPage='articles'>
       <SEO
@@ -124,7 +126,7 @@ const ArticlesPage = props => {
       <ContainerMain>
         <h1>All Articles</h1>
         <PostsGrid>
-          {posts && (posts.map(post => (<PostPreview post={post} />)) )}
+          {posts && (posts.map(post => (<PostPreview post={post} key={post.id} />)) )}
         </PostsGrid>
         {/* <HomeGrid>
           {posts && (<RecentPosts posts={posts} />)}
@@ -216,6 +218,7 @@ export const query = graphql`
           authors{
             author{
               name
+              id
             }
           }
           mainImage {

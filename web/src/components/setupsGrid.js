@@ -99,7 +99,7 @@ const SetupPreview = ({setup}) => {
 
           <TagContainer>
             {setup.tags.map(tag => (
-              <SetupTag {...tag} />
+              <SetupTag {...tag} key={`${setup.username}-${tag.id}`} />
             ))}
           </TagContainer>
 
@@ -111,10 +111,12 @@ const SetupPreview = ({setup}) => {
 }
 
 const FilterTags = ({ filterTags, handleFilterTagClick, resetFilterTags }) => {
+  // console.log(filterTags)
+
   return(
     <FiltersGrid>
       {filterTags.map(tag => (
-        <SetupTag {...tag} isToggleable={true} handleFilterTagClick={handleFilterTagClick} />
+        <SetupTag {...tag} isToggleable={true} handleFilterTagClick={handleFilterTagClick} key={tag.id} />
       ))}
       <ResetTag resetFilterTags={resetFilterTags} />
     </FiltersGrid>
@@ -122,12 +124,14 @@ const FilterTags = ({ filterTags, handleFilterTagClick, resetFilterTags }) => {
 }
 
 const SetupsGrid = ( { setups, tags } ) => {
+  // console.log(tags)
 
   const [filterTags, setFilterTags] = useState(
     tags.edges.map(tag => ({
       title: tag.node.title,
       color: tag.node.color,
       backgroundColor: tag.node.backgroundColor,
+      id: tag.node.id,
       isVisible: true
     }))
   )
@@ -172,7 +176,7 @@ const SetupsGrid = ( { setups, tags } ) => {
     ))
   }
 
-  // console.log(filterTags)
+  // console.log(setups)
 
   return(
     <SetupsSection>
@@ -194,7 +198,7 @@ const SetupsGrid = ( { setups, tags } ) => {
               return(includeSetup)
 
             }).map(setup => (
-              <SetupPreview setup={setup} />
+              <SetupPreview setup={setup} key={setup.username} />
               ))
             }
         </Grid>

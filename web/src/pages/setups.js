@@ -110,6 +110,7 @@ export const query = graphql`
           title
           color
           backgroundColor
+          id
         }
         mainImage {
           asset {
@@ -134,6 +135,7 @@ export const query = graphql`
           color
           title
           backgroundColor
+          id
         }
       }
     }

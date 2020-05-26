@@ -28,12 +28,14 @@ export const query = graphql`
         backgroundColor
       }
       mainImage {
+        alt
         asset {
           fluid {
             ...GatsbySanityImageFluid
           }
           fixed(width: 700) {
             ...GatsbySanityImageFixed
+            src
           }
         }
       }
@@ -56,7 +58,11 @@ const SetupTemplate = props => {
         </Container>
       )}
 
-      {setup && <SetupPage {...setup} />}
+      {setup && <SEO title={setup.title || 'Untitled'} description={toPlainText(setup._rawExcerpt)} image={setup.mainImage} />}
+
+      {setup && 
+        <SetupPage {...setup} />
+      }
     </Layout>
   )
 }

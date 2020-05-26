@@ -94,9 +94,9 @@ const Title = styled.h1`
 // `
 
 const SetupPage = (props) => {
-  console.log(props)
+  // console.log(props)
   const {_rawBody, authors, mainImage, username, publishedAt, tags, source, setupUrl, title, id} = props
-  console.log(tags)
+  // console.log(tags)
 
   return(
     <>

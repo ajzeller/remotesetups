@@ -15,6 +15,7 @@ function SEO ({description, lang, meta, keywords, title, image}) {
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || ''
         // const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : ''
         const metaImage = (data.site) && data.site.metaImage
+        const twitterImage = image ? image : metaImage
 
         return (
           <Helmet
@@ -60,7 +61,7 @@ function SEO ({description, lang, meta, keywords, title, image}) {
               },
               {
                 name: 'twitter:image',
-                content: metaImage.asset.fixed.src
+                content: twitterImage.asset.fixed.src
               }
             ]
               .concat(
