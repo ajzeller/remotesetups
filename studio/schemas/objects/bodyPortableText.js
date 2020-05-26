@@ -9,6 +9,10 @@ const markdownRender = props => (
   <span style={{ borderBottom: '3px solid grey' }}>{props.children}</span>
 )
 
+const inlineTextRender = props => (
+  <span style={{ borderBottom: '3px solid Aquamarine' }}>{props.children}</span>
+)
+
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -28,6 +32,13 @@ export default {
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
         {title: 'Quote', value: 'blockquote'},
+        {
+          title: 'Inline Text', 
+          value: 'inlineText',
+          blockEditor: {
+            render: inlineTextRender
+          }
+        },
         {
           title: 'TLDR', 
           value: 'tldr',
@@ -86,6 +97,10 @@ export default {
     // as a block type.
     {
       type: 'mainImage',
+      options: {hotspot: true}
+    },
+    {
+      type: 'inlineImage',
       options: {hotspot: true}
     },
     {

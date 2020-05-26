@@ -1,5 +1,6 @@
 import React from 'react'
 import Figure from './Figure'
+import InlineFigure from './inlineFigure'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 
@@ -35,10 +36,20 @@ const Markdown = ({input}) => {
   )
 }
 
+const InlineText = styled.p`
+  float: left;
+  /* display: inline-block; */
+  /* height: 100%; */
+  padding: 0 12px 0px 0;
+  margin: 0;
+  max-width: 400px;
+`
+
 const serializers = {
   types: {
     authorReference: ({node}) => <span>{node.author.name}</span>,
     mainImage: Figure,
+    inlineImage: InlineFigure,
     productTable: ({node}) => {
       console.log(node)
       return(
@@ -68,6 +79,9 @@ const serializers = {
 
         case 'markdown':
           return <Markdown input={props.children} />
+        
+        case 'inlineText':
+          return <InlineText>{props.children}</InlineText>
 
         default:
           return <p>{props.children}</p>

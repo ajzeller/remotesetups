@@ -71,7 +71,7 @@ const ArticleBody = styled.div`
   /* border-bottom: 2px solid ${props => props.theme.theme.border.secondary}; */
 
   h2{
-    display: inline-block;
+    display: block;
     padding: 12px 12px 12px 0;
     margin: 24px 0 12px 0;
     /* background-color: #ffffff; */

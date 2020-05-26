@@ -17,6 +17,7 @@ import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
+import inlineImage from './objects/inlineImage'
 import authorReference from './objects/authorReference'
 import productTable from './objects/productTable'
 import markdownInput from './objects/markdownInput'
@@ -37,6 +38,7 @@ export default createSchema({
     setupTag,
     author,
     mainImage,
+    inlineImage,
     productTable,
     markdownInput,
     authorReference,
