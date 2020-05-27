@@ -104,6 +104,10 @@ export default {
       options: {hotspot: true}
     },
     {
+      type: 'downloadableImage',
+      options: {hotspot: true}
+    },
+    {
       name: 'productTable',
       title: 'Product Table',
       type: 'productTable'

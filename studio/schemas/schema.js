@@ -18,6 +18,7 @@ import bioPortableText from './objects/bioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import inlineImage from './objects/inlineImage'
+import downloadableImage from './objects/downloadableImage'
 import authorReference from './objects/authorReference'
 import productTable from './objects/productTable'
 import markdownInput from './objects/markdownInput'
@@ -44,6 +45,7 @@ export default createSchema({
     authorReference,
     bodyPortableText,
     bioPortableText,
+    downloadableImage,
     excerptPortableText
 
     // When added to this list, object types can be used as

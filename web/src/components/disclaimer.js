@@ -8,7 +8,7 @@ const DisclaimerWrapper = styled.p`
 const Disclaimer = () => {
   return(
     <DisclaimerWrapper>
-      (Please note that this page contains Amazon affiliate links which help me to keep this site running. By clicking the links I earn a commission at no cost to you.)
+      (Please note that this page may contain Amazon affiliate links which help me to keep this site running. By clicking the links I earn a commission at no cost to you.)
     </DisclaimerWrapper>
   )
 }

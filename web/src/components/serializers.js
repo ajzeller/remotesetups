@@ -3,6 +3,7 @@ import Figure from './Figure'
 import InlineFigure from './inlineFigure'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
+import DownloadableImage from './downloadableImage'
 
 const TldrWrapper = styled.div`
   border: 1px solid ${props => props.theme.theme.colors.blue};
@@ -50,6 +51,7 @@ const serializers = {
     authorReference: ({node}) => <span>{node.author.name}</span>,
     mainImage: Figure,
     inlineImage: InlineFigure,
+    downloadableImage: DownloadableImage,
     productTable: ({node}) => {
       console.log(node)
       return(
