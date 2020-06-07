@@ -14,16 +14,18 @@ const Caption = styled.figcaption`
   margin: 4px 0 0 0;
   color: ${props => props.theme.theme.text.quarternary};
 `
-const ImageWrapper = styled.div`
-  max-width: 500px;
+const ImageWrapper = styled.a`
+  /* max-width: 500px; */
 `
 
 const Image = styled(Img)`
   /* height: 400px; */
   width: 100%;
+  max-width: 500px;
 `
 
 const Download = styled.a`
+  display: inline-block;
 
   button {
     border: 0;
@@ -66,9 +68,12 @@ export default ({node}) => {
   return (
     <Figure>
       {/* <Img fluid={fluidProps} alt={node.alt} /> */}
-      <ImageWrapper>
-        <Image fluid={fluidProps} alt={node.alt} />
-      </ImageWrapper>
+      <a href={node.asset.url} target="_blank">
+        <ImageWrapper>
+          <Image fluid={fluidProps} alt={node.alt} />
+        </ImageWrapper>
+      </a>
+      <Caption>{node.caption}</Caption>
 
       <Download href={node.asset.url} target="_blank" >
         <button>

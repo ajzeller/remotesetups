@@ -18,6 +18,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 24px;
+  margin: 12px 0 0 0;
 `
 
 export const Panel = styled(motion.div)`
@@ -181,27 +182,28 @@ const SetupsGrid = ( { setups, tags } ) => {
   return(
     <SetupsSection>
       <Label>Filters</Label>
-        <FilterTags filterTags={filterTags} handleFilterTagClick={handleFilterTagClick} resetFilterTags={resetFilterTags} />
-        <Grid>  
-          {
-            setups && setups.filter(setup =>{
-              let includeSetup = false
+      <FilterTags filterTags={filterTags} handleFilterTagClick={handleFilterTagClick} resetFilterTags={resetFilterTags} />
+      <Label>Setups ({setups.length} total)</Label>
+      <Grid>  
+        {
+          setups && setups.filter(setup =>{
+            let includeSetup = false
 
-              setup.tags.forEach(tag => {
-                filterTags.forEach(filterTag => {
-                  if(tag.title == filterTag.title && filterTag.isVisible){
-                    includeSetup = true
-                  }
-                })
+            setup.tags.forEach(tag => {
+              filterTags.forEach(filterTag => {
+                if(tag.title == filterTag.title && filterTag.isVisible){
+                  includeSetup = true
+                }
               })
+            })
 
-              return(includeSetup)
+            return(includeSetup)
 
-            }).map(setup => (
-              <SetupPreview setup={setup} key={setup.username} />
-              ))
-            }
-        </Grid>
+          }).map(setup => (
+            <SetupPreview setup={setup} key={setup.username} />
+            ))
+          }
+      </Grid>
 
     </SetupsSection>
   )
