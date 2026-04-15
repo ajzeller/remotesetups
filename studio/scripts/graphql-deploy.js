@@ -9,7 +9,10 @@ const child = spawn(
 child.stdout.on('data', (data) => {
   process.stdout.write(data)
   if (data.toString().includes('api.sanity.io')) {
-    setTimeout(() => process.exit(0), 500)
+    setTimeout(() => {
+      child.kill()
+      process.exit(0)
+    }, 500)
   }
 })
 
