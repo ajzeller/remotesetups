@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build-web"
+  publish = "web/public"
+
+[build.environment]
+  NODE_VERSION = "18"
+  SHARP_IGNORE_GLOBAL_LIBVIPS = "1"
+  NPM_FLAGS = "--legacy-peer-deps"
